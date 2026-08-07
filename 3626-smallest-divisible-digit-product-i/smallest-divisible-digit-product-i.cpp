@@ -1,19 +1,22 @@
 class Solution {
 public:
-    int prod(int num){
-        int ans = 1;
-        while(num > 0){
-            ans *= (num % 10);
+    int digitProduct(int num){
+        int prod = 1;
+        while(num){
+            prod *= (num%10);
+            if(prod==0){ //early return 
+                return 0;
+            }
             num /= 10;
         }
-        return ans;
+        return prod;
     }
     int smallestNumber(int n, int t) {
-        for(int i= n; ; i++){
-            if(prod(i)%t==0){
-                return n;
+        for(int num=n;num<=num+10;num++){
+            if(digitProduct(num)%t==0){
+                return num;
             }
-            n++;
         }
+        return -1;
     }
 };
