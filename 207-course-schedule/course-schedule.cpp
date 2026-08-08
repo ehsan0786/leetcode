@@ -25,10 +25,10 @@ public:
         }
         for(int i=0;i<numCourses;i++){
             if(!visited[i] && isCycleDFS(adj,i,visited,inRecursion)){
-                return false;
+                return false; //course complete nahi kar sakte 
             }
         }
-        return true;
+        return true; //complete kar sakte hain saare courses
         
     }
 };
