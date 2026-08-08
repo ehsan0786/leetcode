@@ -1,39 +1,34 @@
 class Solution {
 public:
-    bool topologicalSortCheck(unordered_map<int,vector<int>> &adj,int n,vector<int> &indegree){
-        queue<int> que;
-        int cnt = 0;
-        for(int i=0;i<n;i++){
-            if(indegree[i]==0){
-                que.push(i);
-                cnt++;
+    bool isCycleDFS(unordered_map<int,vector<int>> &adj,int u,vector<int> &visited,vector<int> &inRecursion){
+        visited[u] = true;
+        inRecursion[u] = true;
+        for(auto &v : adj[u]){
+            if(!visited[v] && isCycleDFS(adj,v,visited,inRecursion)){
+                return true;
+            }else if(inRecursion[v]==true){
+                return true;
             }
         }
-        while(!que.empty()){
-            int u = que.front();
-            que.pop();
-            for(int &v:adj[u]){
-                indegree[v]--;
-                if(indegree[v] == 0){
-                    que.push(v);
-                    cnt++;
-                }
-            }
-        }
-        if(cnt == n) return true;
-        return false;
+        inRecursion[u]=false;
+        return false; //no cycle
     }
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) { 
+        //DFS
         unordered_map<int,vector<int>> adj;
-        vector<int> indegree(numCourses,0); //kahns algo
-        for(auto &vec:prerequisites){
-            int u = vec[0];
-            int v = vec[1];
-            //u ---> v
-            adj[v].push_back(u); //arrow goes to u
-            indegree[u]++;
+        vector<int> visited(numCourses,false);
+        vector<int> inRecursion(numCourses,false);
+        for(auto &vec : prerequisites){
+            int a = vec[0];
+            int b = vec[1];
+            adj[b].push_back(a);
         }
-
-        return topologicalSortCheck(adj,numCourses,indegree);
+        for(int i=0;i<numCourses;i++){
+            if(!visited[i] && isCycleDFS(adj,i,visited,inRecursion)){
+                return false;
+            }
+        }
+        return true;
+        
     }
 };
