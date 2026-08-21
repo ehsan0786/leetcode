@@ -1,15 +1,17 @@
 class Solution {
 public:
     vector<vector<int>> directions{{1,1},{0,1},{1,0},{-1,0},{0,-1},{-1,-1},{1,-1},{-1,1}};
-
+    bool isSafe(int x,int y,int m,int n){
+        return x>=0 && x<m && y>=0 && y<n;
+    }
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         int m = grid.size();
         int n = grid[0].size();
 
         if(m==0 || n==0 || grid[0][0] != 0) return -1;
-        auto isSafe = [&](int x,int y){
-            return x>=0 && x<m && y>=0 && y<n;
-        };
+        // auto isSafe = [&](int x,int y){
+        //     return x>=0 && x<m && y>=0 && y<n;
+        // };
         queue<pair<int,int>> que;
         que.push({0,0});
         grid[0][0] = 1;
@@ -30,7 +32,7 @@ public:
                     int x_ = x+dir[0];
                     int y_ = y+dir[1];
 
-                    if(isSafe(x_,y_) && grid[x_][y_] == 0){
+                    if(isSafe(x_,y_,m,n) && grid[x_][y_] == 0){
                         que.push({x_,y_});
                         grid[x_][y_]  = 1;
                     }
