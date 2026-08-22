@@ -23,7 +23,6 @@ public:
     bool checkDivisibility(int n) {
         int dig_sum = sum(n);
         int dig_prod = product(n);
-        if(n % (dig_sum + dig_prod) == 0) return true;
-        return false;
+        return (n % (dig_sum + dig_prod) == 0);
     }
 };
