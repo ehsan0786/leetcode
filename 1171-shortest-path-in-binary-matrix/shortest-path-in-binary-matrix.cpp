@@ -19,7 +19,8 @@ public:
         int level = 0;
         while(!que.empty()){
             int N = que.size();
-            while(N--){
+            while(N != 0){
+                N--;
                 auto curr = que.front();
                 que.pop();
 
