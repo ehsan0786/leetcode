@@ -9,7 +9,7 @@ public:
         }
         if(smallOdd==INT_MAX) return true; //all ele are even
         for(auto &num : nums1){
-            if(num%2 == 0 && num-smallOdd < 0){
+            if(num%2 == 0 && num-smallOdd < 1){
                 return false;
             }
         }
