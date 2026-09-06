@@ -15,3 +15,5 @@ order by student_id,subject_name
 
 -- A **CROSS JOIN** combines **every row of left Table  with every row of right Table** 
 -- (mxn)
+
+-- new table
