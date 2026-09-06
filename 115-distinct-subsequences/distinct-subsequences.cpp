@@ -12,8 +12,8 @@ vector<vector<int>>dp;
           }
           not_take=recursion(s,t,i+1,j);
       
-      return dp[i][j]=take+not_take;
-     };
+      return dp[i][j]=take+not_take;;
+     }
     int numDistinct(string s, string t) {
         dp.resize(s.size()+1,vector<int>(t.size()+1,-1));
         return recursion(s,t,0,0);
