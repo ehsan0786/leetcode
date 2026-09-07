@@ -13,6 +13,6 @@ public:
             sum = (sum + total - count[idx] + MOD) % MOD;
             count[idx] = total;
         }
-        return sum;
+        return (int)sum;
     }
 };
