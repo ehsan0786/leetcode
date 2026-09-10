@@ -1,13 +1,23 @@
-#define ll long long
 class Solution {
 public:
     long long countCommas(long long n) {
-        ll result = 0;
-        ll st = 1000;
-        while(st <= n){
-            result += n-st+1;
-            st *= 1000;
-        }
-        return result;
+        if (n<1000) return 0;
+        long long num=0;
+        if (n>=1000)
+            num+=n-1000+1;
+
+        if (n>=1000000)
+            num+=n-1000000+1;
+
+        if (n>=1000000000LL)
+            num+=n-1000000000LL + 1;
+
+        if (n>=1000000000000LL)
+            num+=n-1000000000000LL+1;
+
+        if (n>=1000000000000000LL)
+            num+=n-1000000000000000LL+1;
+
+        return num;
     }
 };
