@@ -6,8 +6,8 @@ public:
             nums[i] *=nums[i];
         }
         sort(nums.begin(),nums.end());
-        long long smaller = accumulate(nums.begin(),nums.begin()+n/2,0ll);
-        long long larger = accumulate(nums.begin()+n/2,nums.end(),0ll);
+        long long smaller = accumulate(nums.begin(),nums.begin()+n/2,0LL);
+        long long larger = accumulate(nums.begin()+n/2,nums.end(),0LL);
         return larger - smaller;
     }
 };
