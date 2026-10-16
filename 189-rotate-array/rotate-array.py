@@ -5,5 +5,4 @@ class Solution:
         last_k = nums[-1*k:]
         first_k = nums[:-1*k]
         nums[:] = last_k + first_k
-        #print(ans)
         
