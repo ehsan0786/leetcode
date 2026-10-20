@@ -26,7 +26,7 @@ public:
 
         if(freshCount == 0) return 0; // all rotten -> already
 
-        int minute = 0; // levels
+        int time = 0; // levels
 
         while(!que.empty()){
             int size = que.size();
@@ -48,11 +48,11 @@ public:
                     }
                 }
             }
-            minute++;
+            time++;
 
         }
 
-        return freshCount == 0 ? (minute-1) : -1;
+        return freshCount == 0 ? (time-1) : -1;
 
 
     }
