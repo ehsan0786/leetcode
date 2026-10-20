@@ -34,7 +34,8 @@ public:
 
         while(!que.empty()){
             int size = que.size();
-            while(size--){
+            while(size!=0){
+                size--;
                 p curr = que.front();
                 que.pop();
 
