@@ -6,11 +6,11 @@ public:
         vector<int> freq(26,0);
 
         for(auto &x: ransomNote){
-            freq[x-'a'] -= 1;
+            freq[x-'a']--;
         }
 
         for(auto &x: magazine){
-            freq[x-'a'] += 1;
+            freq[x-'a']++;
         }
         
         for(int i=0;i<26;i++){
