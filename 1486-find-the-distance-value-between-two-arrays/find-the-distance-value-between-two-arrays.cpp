@@ -4,8 +4,9 @@ public:
           int count=0;
 
           int dist;
+          bool flag;
         for(int i=0;i<arr1.size();i++){
-            bool flag=true;
+            flag=true;
 
             for(int j=0;j<arr2.size();j++){
                 dist=abs(arr1[i]-arr2[j]);
