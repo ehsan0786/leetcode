@@ -5,8 +5,8 @@ public:
         int ans = INT_MAX;
         for(int i=0;i<n;i++){
             int sum = 0;
-            for(int j=i;j<n && j-i+1<=r;j++){
-                sum += nums[j];
+            for(int j=i;j<n;j++){
+                if(j-i+1 <= r) sum += nums[j];
                 if(j-i+1 >= l && sum > 0){
                     ans = min(ans,sum);
                 }
