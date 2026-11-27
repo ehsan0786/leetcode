@@ -27,8 +27,9 @@ public:
             minPrice = min(minPrice,items[i][1]);
             int copy = 0;
             for(int j=0;j<n;j++){
-                if(i==j) continue;
-                if(items[j][0]%items[i][0]==0) copy++;
+                if(j!=i){
+                    if(items[j][0]%items[i][0]==0) copy++;
+                }
             }
             copies[i] = copy;
         }
